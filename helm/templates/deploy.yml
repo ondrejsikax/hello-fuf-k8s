@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-fuf
+spec:
+  revisionHistoryLimit: 0
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: hello-fuf
+  template:
+    metadata:
+      labels:
+        app: hello-fuf
+    spec:
+      containers:
+        - name: main
+          image: ghcr.io/ondrejsikax/hello-fuf-k8s
+          ports:
+            - containerPort: 8000
