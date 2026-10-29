@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-fuf
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - hello-fuf.fuf.sikademo.com
+      secretName: hello-fuf.fuf.sikademo.com-tls
+  rules:
+    - host: hello-fuf.fuf.sikademo.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: hello-fuf
+                port:
+                  number: 80
