@@ -7,3 +7,4 @@ spec:
     app: hello-fuf
   ports:
     - port: 80
+      targetPort: 8000

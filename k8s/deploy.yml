@@ -17,4 +17,4 @@ spec:
         - name: main
           image: ghcr.io/ondrejsikax/hello-fuf-k8s
           ports:
-            - containerPort: 80
+            - containerPort: 8000
